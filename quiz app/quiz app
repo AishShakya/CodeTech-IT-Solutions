@@ -1,0 +1,56 @@
+
+import random
+
+questions = [
+    {
+        "question": "What is the capital of France?",
+        "options": ["Berlin", "Madrid", "Paris", "Rome"],
+        "answer": "Paris"
+    },
+    {
+        "question": "Which planet is known as the Red Planet?",
+        "options": ["Mars", "Venus", "Jupiter", "Saturn"],
+        "answer": "Mars"
+    },
+    {
+        "question": "What is the chemical symbol for water?",
+        "options": ["O2", "CO2", "H2O", "N2"],
+        "answer": "H2O"
+    },
+    {
+        "question": "Which gas do plants absorb from the atmosphere?",
+        "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
+        "answer": "Carbon Dioxide"
+    },
+    
+]
+
+def run_quiz():
+    score = 0
+
+    
+    random.shuffle(questions)
+
+    for q in questions:
+        print(q["question"])
+
+        
+        random.shuffle(q["options"])
+
+        for i, option in enumerate(q["options"], start=1):
+            print(f"{i}. {option}")
+
+        user_answer = input("Your answer (enter the number): ")
+
+        
+        if q["options"][int(user_answer) - 1] == q["answer"]:
+            print("Correct!\n")
+            score += 1
+        else:
+            print(f"Wrong! The correct answer is: {q['answer']}\n")
+
+    print(f"Your final score is: {score}/{len(questions)}")
+
+if __name__ == "__main__":
+    print("Welcome to the Quiz!\n")
+    run_quiz()
